@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            /* Gradient background */
+            background: linear-gradient(135deg, #b7c9f7 0%, #eaf0fb 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+        }
+        .register-card {
+            border-radius: 2rem;
+            box-shadow: 0 8px 40px rgba(44,62,80,0.15);
+            overflow: hidden;
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            border: 1px solid #eaf0fb;
+            animation: cardFadeIn 0.8s cubic-bezier(.4,0,.2,1);
+            display: flex;
+            min-height: 520px;
+            height: 80vh;
+        }
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .register-illustration {
+            background: #b7c9f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 100%;
+            min-width: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+        .register-form {
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        .form-control, .form-select {
+            padding: 0.1rem 0.5rem;
+            border-radius: 0.4rem;
+            font-size: 0.80rem;
+            border: 1.5px solid #b7c9f7;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            border-color: #4a69bd;
+            box-shadow: 0 0 0 0.15rem rgba(74,105,189,0.15);
+        }
+        .form-label {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+        .input-group-text {
+            background: #eaf0fb;
+            border: none;
+            color: #4a69bd;
+            font-size: 1.1rem;
+        }
+        .register-btn {
+            border-radius: 1rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: linear-gradient(90deg, #4a69bd 0%, #6a89cc 100%);
+            border: none;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(74,105,189,0.08);
+        }
+        .register-btn:hover {
+            background: linear-gradient(90deg, #3867d6 0%, #4a69bd 100%);
+            box-shadow: 0 4px 16px rgba(74,105,189,0.15);
+        }
+        a {
+            color: #3867d6;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #2c3e50;
+            text-decoration: underline;
+        }
+        @media (max-width: 767px) {
+            .register-card { flex-direction: column; height: auto; min-height: unset; }
+            .register-illustration { display: none; }
+        }
+        .register-form div[class^="mb-"] {
+            margin-bottom: 0.8rem !important;
+        }
+        .register-form .register-btn {
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+        }
+        .register-form .text-center {
+            margin-top: 1rem !important;
+            margin-bottom: 0.5rem !important;
+            font-size: 1.05rem;
+        }
+        h2.mb-2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem !important;
+        }
+        p.text-center.mb-0 {
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap"></i> FYP ResearchHub
+            </a>
+            <div class="d-flex align-items-center gap-2">
+                <button id="darkModeToggle" class="btn btn-outline-secondary ms-2 px-3 py-2 d-flex align-items-center justify-content-center" style="border-radius:12px;font-weight:600;">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="d-flex align-items-center justify-content-center min-vh-100">
+        <div class="d-flex register-card flex-row w-100">
+            <div class="col-md-6 register-illustration d-none d-md-flex position-relative p-0" style="overflow:hidden; min-height:100%; height:100%;">
+                <div style="position:absolute; inset:0; z-index:1; background: radial-gradient(circle at 60% 40%, #6a89cc 0%, #4a69bd 60%, #b7c9f7 100%); opacity:0.96; height:100%; width:100%; min-height:100%;"></div>
+                <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center" style="z-index:2; position:relative; min-height:100%; height:100%;">
+                    <div style="backdrop-filter: blur(14px); background: rgba(255,255,255,0.13); border-radius: 0rem; box-shadow: 0 12px 48px 0 rgba(44,62,80,0.13); padding: 0.5rem 2.5rem 2.2rem 2.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 620px; min-height: 100%; height: 100%;">
+                        <div style="animation: floatLogo 2.8s ease-in-out infinite alternate; display: flex; flex-direction: column; align-items: center;">
+                            <div style="position:relative;">
+                                <svg width="110" height="110" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <radialGradient id="glow2" cx="50%" cy="60%" r="70%">
+                                            <stop offset="0%" stop-color="#fff" stop-opacity="0.8"/>
+                                            <stop offset="100%" stop-color="#4a69bd" stop-opacity="0.08"/>
+                                        </radialGradient>
+                                        <linearGradient id="bookGrad2" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#6a89cc"/>
+                                            <stop offset="100%" stop-color="#b7c9f7"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <ellipse cx="160" cy="250" rx="90" ry="24" fill="url(#glow2)"/>
+                                    <rect x="70" y="90" width="180" height="120" rx="24" fill="url(#bookGrad2)" stroke="#fff" stroke-width="4"/>
+                                    <rect x="100" y="120" width="120" height="60" rx="12" fill="#fff" stroke="#4a69bd" stroke-width="2"/>
+                                    <rect x="120" y="140" width="80" height="20" rx="6" fill="#b7c9f7"/>
+                                    <circle cx="160" cy="110" r="18" fill="#fff" stroke="#4a69bd" stroke-width="3"/>
+                                    <path d="M160 128v12" stroke="#4a69bd" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M150 110a10 10 0 0 1 20 0" stroke="#4a69bd" stroke-width="2" fill="none"/>
+                                </svg>
+                                <div style="position:absolute; left:50%; top:80%; transform:translate(-50%,0); width:90px; height:18px; background:radial-gradient(circle, #fff8 0%, #b7c9f7 80%, transparent 100%); filter: blur(6px); opacity:0.7;"></div>
+                            </div>
+                        </div>
+                        <div style='font-size:1.7rem; font-weight:900; letter-spacing:1px; text-shadow:0 4px 24px #4a69bd77; color:#fff; line-height:1.1; text-align:center;'>FYP ResearchHub</div>
+                        <div style='font-size:1rem; font-weight:400; margin-top:0.5rem; text-shadow:0 2px 8px #4a69bd55; color:#fff; line-height:1.2; text-align:center;'>FYP Journey Starts Here</div>
+                    </div>
+                </div>
+                <style>
+                @keyframes floatLogo {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-14px); }
+                }
+                </style>
+            </div>
+            <div class="col-md-6 bg-white register-form">
+                <h2 class="mb-2 text-center" style="color:#2c3e50; font-weight:700; font-size:1.5rem;">Sign Up</h2>
+                <p class="text-center mb-0" style="color:#6c757d; font-size:1rem;">Create your FYP account.</p>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label" for="regName">Full Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" id="regName" placeholder="Enter your name" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="regEmail">Email Address</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            <input type="email" class="form-control" id="regEmail" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="regStudentId">Student ID</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            <input type="text" class="form-control" id="regStudentId" placeholder="Enter your student ID" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="regSchool">School</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-school"></i></span>
+                            <select class="form-select" id="regSchool" required>
+                                <option value="">Select School</option>
+                                <option value="SABE">SABE</option>
+                                <option value="SMG">SMG</option>
+                                <option value="SoE">SoE</option>
+                                <option value="SoICT">SoICT</option>
+                                <option value="SoS">SoS</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="regDept">Department</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-building"></i></span>
+                            <select class="form-select" id="regDept" required>
+                                <option value="">Select Department</option>
+                                <option value="DAD">DAD</option>
+                                <option value="EMV">EMV</option>
+                                <option value="SPL">SPL</option>
+                                <option value="GLG">GLG</option>
+                                <option value="MIN">MIN</option>
+                                <option value="CEGE">CEGE</option>
+                                <option value="EEE">EEE</option>
+                                <option value="MEE">MEE</option>
+                                <option value="CS">CS</option>
+                                <option value="CSE">CSE</option>
+                                <option value="IS">IS</option>
+                                <option value="IT">IT</option>
+                                <option value="BIO">BIO</option>
+                                <option value="CHE">CHE</option>
+                                <option value="MAT">MAT</option>
+                                <option value="PHY">PHY</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="regPassword">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" class="form-control" id="regPassword" placeholder="Create password" required>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="regConfirmPassword">Confirm Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" class="form-control" id="regConfirmPassword" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 register-btn">Sign up</button>
+                    <div class="text-center">
+                        Already have an account? <a href="login.html">Sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and FontAwesome -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

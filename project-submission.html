@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Submission - FYP ResearchHub</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Removed status bar as requested -->
+    <nav class="navbar navbar-expand-lg bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap"></i> FYP ResearchHub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="project-submission.html">Submit Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Browse Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="qa.html">Q&A</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="profile.html" class="btn btn-light" id="userProfileBtn">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <button id="darkModeToggle" class="btn btn-outline-secondary ms-2 px-3 py-2 d-flex align-items-center justify-content-center" style="border-radius:12px;font-weight:600;">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Submission Form -->
+    <div class="container mt-5 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="card-body p-4">
+                        <h2 class="text-center mb-4">Submit Your Final Year Project</h2>
+                        <form id="projectSubmissionForm">
+
+                            <!-- Step 1: User Information -->
+                            <div id="step1" class="form-step">
+                                <h5>Step 1: User Information</h5>
+                                <p class="text-muted mb-4">Tell us about yourself.</p>
+
+                                <div class="mb-4">
+                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="fullName" required placeholder="Enter your full name">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="universityEmail" class="form-label">University Email Address</label>
+                                    <input type="email" class="form-control" id="universityEmail" required placeholder="Enter your university email">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="studentId" class="form-label">Student ID</label>
+                                    <input type="text" class="form-control" id="studentId" required placeholder="Enter your student ID">
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn btn-primary next-step">Next</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Project Information -->
+                            <div id="step2" class="form-step d-none">
+                                <h5>Step 2: Project Information</h5>
+                                <p class="text-muted mb-4">Provide details about your project.</p>
+
+                                <!-- Project Title -->
+                                <div class="mb-4">
+                                    <label for="projectTitle" class="form-label">Project Title</label>
+                                    <input type="text" class="form-control" id="projectTitle" required placeholder="Enter your project title">
+                                    <div class="form-text">Choose a unique and descriptive title for your project.</div>
+                                </div>
+
+                                <!-- Abstract -->
+                                <div class="mb-4">
+                                    <label for="projectAbstract" class="form-label">Short Description/Abstract</label>
+                                    <textarea class="form-control" id="projectAbstract" rows="4" required placeholder="Provide a brief summary of your project"></textarea>
+                                </div>
+
+                                <!-- Full Description -->
+                                <div class="mb-4">
+                                    <label for="fullDescription" class="form-label">Full Description</label>
+                                    <textarea class="form-control" id="fullDescription" rows="6" placeholder="Provide a detailed description of your project"></textarea>
+                                </div>
+
+                                <!-- School -->
+                                <div class="mb-4">
+                                    <label for="projectSchool" class="form-label">School</label>
+                                    <select class="form-select" id="projectSchool" required>
+                                        <option value="">Select School</option>
+                                        <option value="SABE">SABE</option>
+                                        <option value="SMG">SMG</option>
+                                        <option value="SoE">SoE</option>
+                                        <option value="SoICT">SoICT</option>
+                                        <option value="SoS">SoS</option>
+                                    </select>
+                                </div>
+
+                                <!-- Department -->
+                                <div class="mb-4">
+                                    <label for="projectDepartment" class="form-label">Department</label>
+                                    <select class="form-select" id="projectDepartment" required>
+                                        <option value="">Select Department</option>
+                                        <option value="DAD">DAD</option>
+                                        <option value="EMV">EMV</option>
+                                        <option value="SPL">SPL</option>
+                                        <option value="GLG">GLG</option>
+                                        <option value="MIN">MIN</option>
+                                        <option value="CEGE">CEGE</option>
+                                        <option value="EEE">EEE</option>
+                                        <option value="MEE">MEE</option>
+                                        <option value="CS">CS</option>
+                                        <option value="CSE">CSE</option>
+                                        <option value="IS">IS</option>
+                                        <option value="IT">IT</option>
+                                        <option value="BIO">BIO</option>
+                                        <option value="CHE">CHE</option>
+                                        <option value="MAT">MAT</option>
+                                        <option value="PHY">PHY</option>
+                                    </select>
+                                </div>
+
+                                <!-- Submission Year -->
+                                <div class="mb-4">
+                                    <label for="submissionYear" class="form-label">Submission Year</label>
+                                    <input type="number" class="form-control" id="submissionYear" required placeholder="e.g., 2024" min="2000" max="2099">
+                                </div>
+
+                                <!-- Keywords -->
+                                <div class="mb-4">
+                                    <label for="projectKeywords" class="form-label">Keywords/Tags</label>
+                                    <input type="text" class="form-control" id="projectKeywords" required placeholder="Enter keywords separated by commas">
+                                    <div class="form-text">Add relevant keywords to help others find your project.</div>
+                                </div>
+
+                                <!-- Supervisor(s) Name(s) -->
+                                <div class="mb-4">
+                                    <label for="supervisorNames" class="form-label">Supervisor(s) Name(s)</label>
+                                    <input type="text" class="form-control" id="supervisorNames" placeholder="Enter supervisor names separated by commas">
+                                </div>
+
+                                <!-- Team Members -->
+                                <div class="mb-4">
+                                    <label for="teamMembers" class="form-label">Team Members (if group project)</label>
+                                    <input type="text" class="form-control" id="teamMembers" placeholder="Enter team member names separated by commas">
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-secondary back-step">Back</button>
+                                    <button type="button" class="btn btn-primary next-step">Next</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Upload Files & Agree to Terms -->
+                            <div id="step3" class="form-step d-none">
+                                <h5>Step 3: Upload Files & Agree to Terms</h5>
+                                <p class="text-muted mb-4">Upload your project files and agree to the terms.</p>
+
+                                <!-- Project File -->
+                                <div class="mb-4">
+                                    <label for="projectFile" class="form-label">Project Report (PDF)</label>
+                                    <input type="file" class="form-control" id="projectFile" accept=".pdf" required>
+                                    <div class="form-text">Upload your main project report in PDF format (max 10MB).</div>
+                                </div>
+
+                                <!-- Terms and Conditions -->
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                                        <label class="form-check-label" for="termsCheck">
+                                            I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">terms and conditions</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-secondary back-step">Back</button>
+                                    <button type="submit" class="btn btn-success">Submit Final Project</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms and Conditions Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Terms and Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Project Submission</h6>
+                    <p>By submitting your project, you confirm that it is your original work and you have the right to share it.</p>
+                    
+                    <h6>2. Intellectual Property</h6>
+                    <p>You retain all rights to your work. The platform is only used for sharing and collaboration purposes.</p>
+                    
+                    <h6>3. Privacy</h6>
+                    <p>Your personal information will be protected according to our privacy policy.</p>
+                    
+                    <h6>4. Content Guidelines</h6>
+                    <p>All submitted content must be appropriate and comply with academic standards.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/project-submission.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const formSteps = document.querySelectorAll('.form-step');
+            const nextButtons = document.querySelectorAll('.next-step');
+            const backButtons = document.querySelectorAll('.back-step');
+            let currentStep = 0;
+
+            function showStep(step) {
+                formSteps.forEach((s, index) => {
+                    s.classList.add('d-none');
+                    if (index === step) {
+                        s.classList.remove('d-none');
+                    }
+                });
+            }
+
+            function validateStep(step) {
+                let isValid = true;
+                const currentForm = formSteps[step];
+                const requiredInputs = currentForm.querySelectorAll('[required]');
+
+                requiredInputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        isValid = false;
+                        input.classList.add('is-invalid');
+                    } else {
+                        input.classList.remove('is-invalid');
+                    }
+                });
+
+                return isValid;
+            }
+
+            nextButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (validateStep(currentStep)) {
+                        currentStep++;
+                        showStep(currentStep);
+                    }
+                });
+            });
+
+            backButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    currentStep--;
+                    showStep(currentStep);
+                });
+            });
+
+            // Initial step display
+            showStep(currentStep);
+
+            // Basic form submission handling (can be expanded later)
+            const submissionForm = document.getElementById('projectSubmissionForm');
+            submissionForm.addEventListener('submit', function(event) {
+                if (!validateStep(currentStep)) { // Validate final step
+                    event.preventDefault(); // Prevent actual form submission if validation fails
+                    alert('Please fill in all required fields and agree to the terms.');
+                } else {
+                    // Here you would typically send the form data to the server
+                    // Save user data to localStorage
+                    const userData = {
+                        fullName: document.getElementById('fullName').value,
+                        universityEmail: document.getElementById('universityEmail').value,
+                        studentId: document.getElementById('studentId').value,
+                        projectSchool: document.getElementById('projectSchool').value,
+                        projectDepartment: document.getElementById('projectDepartment').value,
+                        // Add other relevant fields from the form as needed
+                    };
+                    localStorage.setItem('userData', JSON.stringify(userData));
+
+                    alert('Project submitted successfully (simulated)!'); // Placeholder
+                    // event.preventDefault(); // Keep commented out for real submission
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
