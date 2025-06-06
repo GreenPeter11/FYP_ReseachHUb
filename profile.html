@@ -13,7 +13,7 @@
 </head>
 <body>
     <!-- Navbar Placeholder -->
-    <nav class="navbar navbar-expand-lg bg-light sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <i class="fas fa-graduation-cap"></i> FYP ResearchHub
@@ -39,13 +39,9 @@
                         <a class="nav-link" href="leaderboard.html">Leaderboard</a>
                     </li>
                 </ul>
-                <div class="d-flex align-items-center gap-2">
-                    <a href="profile.html" class="btn btn-light active" id="userProfileBtn">
-                        <i class="fas fa-user"></i> Profile
-                    </a>
-                    <button id="darkModeToggle" class="btn btn-outline-secondary ms-2 px-3 py-2 d-flex align-items-center justify-content-center" style="border-radius:12px;font-weight:600;">
-                        <i class="fas fa-moon"></i>
-                    </button>
+                <div class="d-flex align-items-center">
+                    <a href="projects.html" class="btn btn-outline-primary me-2">Projects</a>
+                    <button class="btn btn-primary" onclick="logout()">Logout</button>
                 </div>
             </div>
         </div>
